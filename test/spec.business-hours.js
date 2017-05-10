@@ -465,6 +465,7 @@ describe('moment.business-hours', function () {
 
         it('does not include holidays when adding working time', function () {
             moment('2015-02-26').addWorkingTime(3, 'days').format(date).should.equal('2015-03-04');
+            moment.tz.setDefault("UTC");
             moment('2015-02-26T12:00:00Z').addWorkingTime(8, 'hours').format(full).should.equal('2015-03-02 12:00:00.000');
         });
 
