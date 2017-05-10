@@ -15,7 +15,7 @@ describe('moment.business-hours', function () {
     });
 
     afterEach(function () {
-        moment.locale('en', localeData);
+        moment.updateLocale('en', localeData);
     });
 
 
@@ -312,7 +312,7 @@ describe('moment.business-hours', function () {
     describe('modified locales', function () {
 
         it('handles inconsistent opening hours', function () {
-            moment.locale('en', {
+            moment.updateLocale('en', {
                 workinghours: {
                     0: null,
                     1: ['12:00:00', '17:00:00'],
@@ -330,7 +330,7 @@ describe('moment.business-hours', function () {
         });
 
         it('handles inconsistent closing hours', function () {
-            moment.locale('en', {
+            moment.updateLocale('en', {
                 workinghours:  {
                     0: null,
                     1: ['09:30:00', '17:00:00'],
@@ -348,7 +348,7 @@ describe('moment.business-hours', function () {
         });
 
         it('handles different working days', function () {
-            moment.locale('en', {
+            moment.updateLocale('en', {
                 workinghours: {
                     0: ['09:30:00', '17:00:00'],
                     1: ['09:30:00', '17:00:00'],
@@ -403,13 +403,7 @@ describe('moment.business-hours', function () {
             to.workingDiff(from, 'days').should.equal(15);
 
             moment('2015-02-27T15:00:00').workingDiff(moment('2015-02-27T10:00:00'), 'day').should.equal(0);
-            moment('2015-02-27T15:00:00').workingDiff(moment('2015-02-27T10:00:00'), 'day', true).should.equal(0.625);
             moment('2015-02-27T15:00:00').workingDiff(moment('2015-02-26T10:00:00'), 'day').should.equal(1)
-            moment('2015-02-27T15:00:00').workingDiff(moment('2015-02-26T10:00:00'), 'day', true).should.equal(1.625);
-
-            moment('2015-02-27T15:00:00').workingDiff(moment('2015-02-21T10:00:00'), 'day', true).should.equal(4.75);
-            moment('2015-02-21T10:00:00').workingDiff(moment('2015-02-27T15:00:00'), 'day', true).should.equal(-4.75);
-
         });
 
         it('handles units that don\'t really makes sense for business opening times by deferring to moment', function () {
@@ -421,7 +415,7 @@ describe('moment.business-hours', function () {
         });
 
         it('handles inconsistent closing hours', function () {
-            moment.locale('en', {
+            moment.updateLocale('en', {
                 workinghours:  {
                     0: null,
                     1: ['09:30:00', '17:00:00'],
@@ -451,7 +445,7 @@ describe('moment.business-hours', function () {
 
         beforeEach(function () {
             moment.locale('en');
-            moment.locale('en', {
+            moment.updateLocale('en', {
                 holidays: [
                     '2015-02-27',
                     '*-12-25'
@@ -460,7 +454,7 @@ describe('moment.business-hours', function () {
         });
 
         afterEach(function () {
-            moment.locale('en', {
+            moment.updateLocale('en', {
                 holidays: []
             });
         });

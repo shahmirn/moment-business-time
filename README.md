@@ -1,5 +1,11 @@
 # moment-business-time
 
+[![Build Status](https://travis-ci.org/codeforeurope/moment-business-time.svg?branch=master)](https://travis-ci.org/codeforeurope/moment-business-time) 
+
+[![Dependency Status](https://david-dm.org/codeforeurope/moment-business-time.svg)](https://david-dm.org/codeforeurope/moment-business-time)
+
+* We thank [lennym](https://github.com/lennym), from which we forked this library
+
 Query and manipulate moment objects within the scope of business/working hours.
 
 ## Install
